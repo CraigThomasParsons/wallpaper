@@ -1,10 +1,8 @@
 # Bash Script for Changing Wallpaper on Dual Monitors in Arch Linux with i3wm
-I stuggle to get random wallpapers to work well via cronjobs on arch with i3wm.
+I struggle to get random wallpapers to work well via cronjobs on arch with i3wm.
 I can't for some reason get cronjobs to use feh to update my desktop image, no matter what I do.
-Once I figure that out I'll commit the solution in this repository, because years ago I did get
-it to work. Now, if I were to figure it out, I don't want to forget it.
 
-Today I think I managed to get this to work:
+Today I think I managed to get this to work with help from my friends Perplexity, Grok, ChatGpt
 
 Let’s break this into three parts:
 
@@ -18,11 +16,11 @@ A simple Bash script to randomly select and set wallpapers on two monitors from 
 Instructions to set it up as a systemd user service (acting as a daemon) that changes the wallpaper every X minutes (e.g., 30 minutes). This runs in the background without needing a full always-on process.
 
 ## Setup Assumptions
-- You use Arch Linux + i3wm.
+- I use Arch Linux + i3wm and if you want to make any use of these scripts you do too.
 - feh is installed ( sudo pacman -S feh ).
 - inotify-tools is installed for file watching ( sudo pacman -S inotify-tools).
 - You have two monitors (e.g., detected as HDMI-1 and DP-1 – check yours with xrandr).
-- My main monitor is a widescreen and my secondary is a vertical widescreen
+- My main monitor are: a widescreen and my secondary is a vertical widescreen
   DP-3   → wide wallpaper (001.jpg)
   HDMI-1 → vertical wallpaper (002.jpg)
 
@@ -38,16 +36,17 @@ Instructions to set it up as a systemd user service (acting as a daemon) that ch
 │   ├── vert1.jpg
 │   ├── vert2.jpg
 │   └── ...
-├── current/
+├── CurrentBackground/
 │   ├── 001.jpg
 │   └── 002.jpg
 
 
 Replace these with your actual paths.
-Images are in common formats like JPG/PNG.
+Images are in JPG
 
 The Wallpaper Daemon (~/scripts/wallpaper-daemon.sh)
-This script monitors 001.jpg and 002.jpg for changes and refreshes the wallpaper automatically using feh.
+This script monitors 001.jpg and 002.jpg for changes and refreshes the wallpaper automatically using feh
+```
 #!/usr/bin/env bash
 
 # Directories and files
@@ -73,6 +72,7 @@ while inotifywait -e close_write,create,move_self,delete_self "$FILE1" "$FILE2";
     echo "[daemon] Detected wallpaper update, refreshing..."
     set_wallpapers
 done
+```
 
 The script picks a random image from each folder and sets it to fill the screen
 (you can tweak the mode if needed).
