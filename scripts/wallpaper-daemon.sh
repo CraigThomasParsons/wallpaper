@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Refresh the current background.
+# Refresh the current background when the files were changed by chwall or my own cronscript
 
 # Directories and files
 WALLPAPER_DIR="$HOME/Wallpapers/CurrentBackground"
