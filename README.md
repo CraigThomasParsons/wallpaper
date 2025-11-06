@@ -26,7 +26,7 @@ Instructions to set it up as a systemd user service (acting as a daemon) that ch
 
 - Wallpapers are stored in two folders:
   $HOME/Pictures/Wallpaper/ (for monitor 1) and $HOME/Pictures/VerticalWallpaper/ (for monitor 2).
-
+```
   ~/PicturesWallpapers/
 ├── Wallpaper/
 │   ├── pic1.jpg
@@ -39,7 +39,7 @@ Instructions to set it up as a systemd user service (acting as a daemon) that ch
 ├── CurrentBackground/
 │   ├── 001.jpg
 │   └── 002.jpg
-
+```
 
 Replace these with your actual paths.
 Images are in JPG
