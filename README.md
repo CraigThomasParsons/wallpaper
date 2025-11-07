@@ -224,7 +224,8 @@ cp "$VERT_WP" "$CURRENT_DIR/002.jpg"
 echo "[changer] Changed wallpapers at $(date)"
 ```
 
-## I could have gone with this, instead I used change_wallpaper_files.sh, because I wrote that myself and tested it often enough.
+## I could have gone with this, instead I used change_wallpaper_files.sh
+## Because I wrote that myself and tested it often enough.
 You'll find this script in scripts/wallpaper-daemon.sh
 Move it to your local bin director
 
