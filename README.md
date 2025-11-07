@@ -82,7 +82,6 @@ chmod +x ~/bin/wallpaper_daemon.sh).
 
 bash
 ```
-#!/bin/bash
 #!/usr/bin/env bash
 # change_wallpapers.sh
 
