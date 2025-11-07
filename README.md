@@ -124,10 +124,10 @@ nitrogen --head=1 --set-zoom-fill "$IMAGE2"  # For monitor 2 (head 1)
 Test it: Run ./wallpaper_daemon.sh manually to see if it works. If your monitor heads are different, adjust --head=0 and --head=1.
 
 ## Since then I took the script that works best for me and saved it as change_wallpaper_files.sh
-*/5 * * * *  /home/USERNAME/bin/change_wallpaper_files.sh >> /home/USERNAME/varlog/cronrun.txt
+    */5 * * * *  /home/USERNAME/bin/change_wallpaper_files.sh >> /home/USERNAME/varlog/cronrun.txt
 
 ## This is all I actually want to do:
-*/5 * * * *  export DISPLAY=:0 && sh -c "feh --bg-fill ~/Pictures/CurrentBackground/0001.jpg --auto-reload --bg-fill ~/Pictures/CurrentBackground/0002.jpg" username
+    */5 * * * *  export DISPLAY=:0 && sh -c "feh --bg-fill ~/Pictures/CurrentBackground/0001.jpg --auto-reload --bg-fill ~/Pictures/CurrentBackground/0002.jpg" username
 
 ## However that really doesn't actually work!
 So I asked Chatgpt and Grok how to proceed and combined my the two solutions and some of my own work together.
@@ -138,9 +138,10 @@ I'm still unsure if this actually works
 We'll create a systemd timer and service to run the script periodically. This acts like a lightweight daemon – it wakes up, runs the script, and sleeps. No constant CPU usage.
 
 Create the service file (defines what to run): mkdir -p ~/.config/systemd/user
-vim ~/.config/systemd/user/wallpaper_daemon.service
+    vim ~/.config/systemd/user/wallpaper_daemon.service
 
 Paste this:
+```
 [Unit]
 Description=Change wallpaper on multiple monitors 
 After=network.target
@@ -165,6 +166,7 @@ Persistent=true
 
 [Install]
 WantedBy=timers.target
+```
 
 Enable and start:
 
