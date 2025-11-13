@@ -18,7 +18,7 @@ These are a bunch of scripts used to setup random wallpaper changes, or wallpape
   HDMI-1 → vertical wallpaper (002.jpg)
 
 - Wallpapers are stored in two folders:
-  $HOME/Pictures/Wallpaper/ (for monitor 1) and $HOME/Pictures/VerticalWallpaper/ (for monitor 2).
+  $HOME/Pictures/WideWallpaper/ (for monitor 1) and $HOME/Pictures/VerticalWallpaper/ (for monitor 2).
 ```
   ~/Pictures/Wallpaper/
 ├── WideWallpapers/
